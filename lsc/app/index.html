@@ -34,10 +34,23 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class=" col-md-8 fecha-hora">
-          <span class="sub-menu-texto-big uppercase">7 de julio</span><span class="sub-menu-hora">12:56m</span>
+          <div class=" col-md-6 fecha-hora">       
+          <span class="sub-menu-texto-big uppercase">
+            <script>
+            var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+            var f=new Date();
+            document.write(f.getDate() + " de " + meses[f.getMonth()]);
+            </script>
+          </span>
+          <span class="sub-menu-hora">
+           <script type="text/javascript">
+            var d = new Date();
+           document.write(''+d.getHours(),
+            ':'+d.getMinutes());
+          </script>
+          </span>
           </div>
-          <div class=" col-md-4 leyenda pt20"><span class="agudos">Agudos</span> <span class="graves">Graves</span>
+          <div class=" col-md-6 leyenda pt20"><span class="agudos">Agudos</span> <span class="graves">Graves</span>
            <span class="volumen">Volumen</span>
           </div>
         </div>
