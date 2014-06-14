@@ -6,15 +6,13 @@ $(document).ready(function(){
   var circle_options = {
       color: '#ffff00',      // Stroke color
       opacity: 0.7,         // Stroke opacity
-      weight: 40,         // Stroke weight
-      fillColor: '#ff0000',  // Fill color
-      fillOpacity: 0.6    // Fill opacity
+      weight: 0,         // Stroke weight
   };
 
   var julieRef = new Firebase('https://oinez.firebaseio.com/karlos_tarde');
   julieRef.on('child_added', function(snapshot) {
     var msgData = snapshot.val();
-    var circle_one = L.circle([msgData.lat, msgData.lon], 1, circle_options).addTo(map);
+    var circle_one = L.circle([msgData.lat, msgData.lon], 40, circle_options).addTo(map);
     // marker= L.marker(new L.LatLng(msgData.lat, msgData.lon), {
     //               icon: L.mapbox.marker.icon({'marker-color': '55BF0A'}),
     //               draggable: true
