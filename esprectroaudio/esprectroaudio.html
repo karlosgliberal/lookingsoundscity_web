@@ -32,6 +32,7 @@
 <button id="txistu">txistu</button>
 <button id="ruido">Ruido</button>
 <button id="stop">stop</button>
+<button id="migr">migr1</button>
 
 <canvas id="canvas" width="800" height="512" style="display: block; background-color: black ;"></canvas>
 
@@ -108,6 +109,7 @@
               context.decodeAudioData(request.response, function (buffer) {
                   // when the audio is decoded play the sound
                   playSound(buffer);
+                      console.log(buffer.length);
               }, onError);
           }
           request.send();
@@ -143,28 +145,35 @@
       }
 
       function drawSpectrogram(array) {
-
           // copy the current canvas onto the temp canvas
           var canvas = document.getElementById("canvas");
-
           tempCtx.drawImage(canvas, 0, 0, 800, 512);
-
           // iterate over the elements from the array
           for (var i = 0; i < array.length; i++) {
-              
               // draw each pixel with the specific color
               var value = array[i];
-              ctx.fillStyle = hot.getColor(value).hex();
-
+              if(value > 0 && value < 50){
+                ctx.fillStyle = '#fff';
+              }else if(value > 50 && value < 100){
+                ctx.fillStyle = '#00FF00';
+              }else if(value > 100 && value < 150){
+                ctx.fillStyle = '#FFFF00';
+              }else if(value > 150 && value < 200){
+                ctx.fillStyle = '#00FFFF';
+              }else if(value > 200 && value < 250){
+                ctx.fillStyle = '#FF0000';
+              }else if(value > 250 && value < 300){
+                ctx.fillStyle = '#FF3333';
+              }else{
+                ctx.fillStyle = hot.getColor(value).hex();
+              }
               // draw the line at the right side of the canvas
               ctx.fillRect(800 - 1, 512 - i, 1, 1);
           }
-
           // set translate on the canvas
           ctx.translate(-1, 0);
           // draw the copied image
           ctx.drawImage(tempCanvas, 0, 0, 800, 512, 0, 0, 800, 512);
-
           // reset the transformation matrix
           ctx.setTransform(1, 0, 0, 1, 0, 0);
 
@@ -180,6 +189,10 @@
       });
       $('#stop').click(function(e){
         loadSound("");
+      });
+      $('#migr').click(function(e){
+            console.log('mgir');
+        loadSound("descarga.mp3");
       });
     });
 
