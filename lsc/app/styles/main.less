@@ -5,30 +5,24 @@
 @import "../bower_components/bootstrap/less/bootstrap.less";
 @icon-font-path: "../bower_components/bootstrap/dist/fonts/";
 
-// temporal para el ajuste de secciones
-.puntal {
-	padding: 300px 0px;
-	background-color: #ccc;
-}
-
 // ------------
 // COLORES
 // ------------
-@blue: #5fa7df;
-@light_blue:#51A7DF;
-@black:#303231;
+@lila: #603C90;
+@amarillo:#C3C100;
+@turquesa:#5D989F;
 @white:#fff;
-@white_dark: #e8e8e8;
-@gray:#d6d6d6;
-@gray_dark: #8f8f8f;
-@black_extra: #000;
-@green: #76b828;
+@gray:#222222;
+@gray_dark: #282828;
+@black: #000;
+
 
 // --------------
 // TIPOGRAFIAS
 // --------------
 @open: "Open Sans", sans-serif;
 @open_con: "Open Sans Condensed", sans-serif;
+@impact: "Impact", Charcoal, sans-serif;
 
 // --------------
 // GENERALES
@@ -40,6 +34,11 @@ body {
 	text-align: center;
 }
 
+
+.inner-20 {
+	padding: 20px 0px;
+}
+
 .inner-30 {
 	padding: 30px 15px;
 }
@@ -49,7 +48,7 @@ body {
 }
 
 .inner-45 {
-	padding: 45px 0px !important;
+	padding: 45px 0px;
 }
 .inner-65 {
 	padding: 65px 15px;
@@ -63,10 +62,12 @@ body {
 	text-transform: uppercase;
 }
 
-
-
 .shadow {
 text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
+}
+
+.white {
+	color: @white;
 }
 
 // -----------------
@@ -146,75 +147,168 @@ text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
 	padding-bottom: 30px;
 }
 
-.divide60 {
-    width: 100%;
-    height: 75px;
-}
-
-.divide75 {
-    width: 100%;
-    height: 75px;
-}
-.divide80 {
-    width: 100%;
-    height: 80px;
-}
-.divide85 {
-    width: 100%;
-    height: 85px;
-}
-
-// ---------------
-// PARALLAX
-// ---------------
-
-.parallax {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    margin: 0 auto;
-    height: auto;
-    overflow: hidden;
-    padding: 0;
-    background-attachment: fixed;
-    background-position: 50% 0;
-    background-repeat: no-repeat;
+.divider-map {
+	width: 100%;
+    height: 550px;
 }
 
 // ----------------
-// MENU PRINCIPAL
+// HEADER
 // ----------------
-.navbar {
-	margin-bottom: 0;
-	min-height: 86px;
-	font-family: @open;
-	font-weight: 600;
+.header-lsc {
+	padding: 20px;
+	background: fade(@black, 20%);
 }
 
-.navbar-default {
-border-color: @white;
+.logo-header {
+	
+	text-align: center;
 }
 
-.navbar-nav > li > a {
-padding-top: 30px;
-padding-bottom: 30px;
-text-transform: uppercase;
-}
-
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-color: #333333;
-background-color: transparent;
-border-bottom: 5px solid @blue;
-}
-
-.navbar-default {
-background-color: @white;
-}
-
-.navbar.container {
- margin-top: 0px; 
-}
 // ------------
 // MAPA
 // ------------
+
+
+ #map { 
+ 	position:absolute; 
+ 	top:0; 
+ 	bottom:0; 
+ 	width:100%; 
+}
+
+.mapa {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.main {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+// -------------
+// SUB MENU
+// -------------
+
+.sub-menu {
+	background-color: @gray;
+}
+
+.sub-menu-texto-big {
+   font-family: @impact;
+   font-weight: normal;
+   font-size: 40px;
+   padding: 13px;
+}
+
+.sub-menu-hora {
+font-size: 20px;
+}
+// -----------
+// LEYENDA
+// -----------
+
+.leyenda span {
+	margin: 0 10px;
+}
+
+.agudos:before {
+  border-radius: 50%;
+  content: "";
+  padding: 0px 9px;
+  margin: 8px;
+  background-color: @lila;
+}
+
+.graves:before {
+  border-radius: 50%;
+  content: "";
+  padding: 0px 9px;
+  margin: 8px;
+  background-color: @amarillo;
+}
+ .volumen:before {
+  border-radius: 50%;
+  content: "";
+  padding: 0px 9px;
+  margin: 8px;
+  background-color: @turquesa;
+}
+// -----------
+// FOOTER
+// -----------
+
+.footer-lsc {
+ background: fade(@gray_dark, 93%);
+ position: absolute;
+ bottom: 0;
+ border-top: 5px solid @black;
+ width: 100%;
+
+}
+
+.logos-footer {
+	margin-top: 8px;	
+}
+.logos-footer > li {
+	display: inline;
+	padding: 0 20px;
+}
+.logos-footer > li.first {
+	display: inline;
+	padding: 0px;
+}
+// ------------
+// MAPBOX
+// ------------
+
+    #map-ui {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+    }
+
+    #map-ui ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map-ui a {
+        font-size: 13px;
+        background: #FFF;
+        color: #3C4E5A;
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #BBB;
+        border-bottom-width: 0;
+        min-width: 138px;
+        padding: 10px;
+        text-decoration: none;
+    }
+
+    #map-ui a:hover {
+        background: #ECF5FA;
+    }
+
+    #map-ui li:last-child a {
+        border-bottom-width: 1px;
+        -webkit-border-radius: 0 0 3px 3px;
+        border-radius: 0 0 3px 3px;
+    }
+
+    #map-ui li:first-child a {
+        -webkit-border-radius: 3px 3px 0 0;
+        border-radius: 3px 3px 0 0;
+    }
+
+    #map-ui a.active {
+        background: #3887BE;
+        border-color: #3887BE;
+        color: #FFF;
+    }
