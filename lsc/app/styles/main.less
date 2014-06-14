@@ -15,6 +15,7 @@
 @gray:#222222;
 @gray_dark: #282828;
 @black: #000;
+@gray_ligth:#888888;
 
 
 // --------------
@@ -36,7 +37,7 @@ body {
 
 
 .inner-20 {
-	padding: 20px 0px;
+	padding: 5px 0px;
 }
 
 .inner-30 {
@@ -161,28 +162,12 @@ text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
 }
 
 .logo-header {
-	
 	text-align: center;
 }
 
 // ------------
-// MAPA
+// MAIN
 // ------------
-
-
- #map { 
- 	position:absolute; 
- 	top:0; 
- 	bottom:0; 
- 	width:100%; 
-}
-
-.mapa {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-}
 
 .main {
 	position: absolute;
@@ -200,7 +185,7 @@ text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
 .sub-menu-texto-big {
    font-family: @impact;
    font-weight: normal;
-   font-size: 40px;
+   font-size: 25px;
    padding: 13px;
 }
 
@@ -247,6 +232,7 @@ font-size: 20px;
  bottom: 0;
  border-top: 5px solid @black;
  width: 100%;
+ color: @gray_ligth;
 
 }
 
@@ -264,6 +250,12 @@ font-size: 20px;
 // ------------
 // MAPBOX
 // ------------
+ #map { 
+ 	position:absolute; 
+ 	top:0; 
+ 	bottom:0; 
+ 	width:100%; 
+} 
 
     #map-ui {
         position: absolute;
@@ -312,3 +304,7 @@ font-size: 20px;
         border-color: #3887BE;
         color: #FFF;
     }
+
+.logo-header img {
+	width: 15%;
+}
