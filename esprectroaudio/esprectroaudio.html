@@ -47,7 +47,6 @@
       }
 
       var context = new AudioContext();
-
       var audioBuffer;
       var sourceNode;
       var analyser;
@@ -61,6 +60,8 @@
           tempCtx = tempCanvas.getContext("2d");
       tempCanvas.width=800;
       tempCanvas.height=512;
+      var agudos = 0;
+
 
       // used for color distribution
       var hot = new chroma.ColorScale({
@@ -119,7 +120,11 @@
       function playSound(buffer) {
           sourceNode.buffer = buffer;
           sourceNode.start(0);
-          sourceNode.loop = true;
+          sourceNode.loop = false;
+          setInterval(function(){
+            sourceNode.stop(0);
+                console.log(agudos);  
+          },10000);
       }
 
       // log if an error occurs
@@ -162,6 +167,7 @@
                 ctx.fillStyle = '#00FFFF';
               }else if(value > 200 && value < 250){
                 ctx.fillStyle = '#FF0000';
+                agudos++;
               }else if(value > 250 && value < 300){
                 ctx.fillStyle = '#FF3333';
               }else{
@@ -176,23 +182,24 @@
           ctx.drawImage(tempCanvas, 0, 0, 800, 512, 0, 0, 800, 512);
           // reset the transformation matrix
           ctx.setTransform(1, 0, 0, 1, 0, 0);
+              console.log(agudos);
 
       }
       $('#wagner').click(function(e){
-        loadSound("wagner-short.ogg");
+        loadSound("wagner.mp3");
       });
       $('#txistu').click(function(e){
         loadSound("txistu.mp3");
       });
       $('#ruido').click(function(e){
-        loadSound("ruido.mp3");
+        loadSound("txupinazo.mp3");
       });
       $('#stop').click(function(e){
         loadSound("");
       });
       $('#migr').click(function(e){
             console.log('mgir');
-        loadSound("descarga.mp3");
+        loadSound("despedida.mp3");
       });
     });
 
